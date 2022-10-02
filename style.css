@@ -1,0 +1,100 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(40deg, aqua, white);
+  width: 100%;
+  padding-bottom: 500px;
+}
+
+.calc__text {
+  font-size: 40px;
+  line-height: 0.5;
+  text-align: center;
+  -webkit-text-decoration: 3px overline;
+          text-decoration: 3px overline;
+}
+
+.calc__container {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.calc {
+  margin-inline: 10px;
+  margin-top: 20px;
+  border: 3px solid white;
+  -webkit-box-shadow: 3px 3px 10px black;
+          box-shadow: 3px 3px 10px black;
+  border-radius: 5px;
+  padding-top: 10px;
+  background-color: rgb(34, 17, 63);
+}
+
+.calc__display {
+  max-width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  background-color: darkblue;
+  border: 3px solid white;
+  -webkit-box-shadow: 3px 3px 10px black;
+          box-shadow: 3px 3px 10px black;
+  border-radius: 15px;
+  color: white;
+  font-size: 45px;
+  position: relative;
+}
+
+.calc__previous {
+  position: relative;
+  top: 14px;
+  left: 20px;
+  margin-right: 30px;
+  margin-left: -15px;
+  font-size: 20px;
+  text-align: right;
+  color: rgba(245, 245, 220, 0.747);
+}
+
+.calc__now {
+  position: relative;
+  top: 16px;
+  left: 20px;
+  margin-right: 30px;
+  margin-left: -15px;
+  text-align: right;
+}
+
+.calc__keys {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 30px 10px 10px 10px;
+}
+.calc__keys button {
+  font-size: 25px;
+  border-radius: 5px;
+  height: 48px;
+  font-weight: 600;
+  background-color: rgb(223, 198, 255);
+}
+.calc__keys button:hover {
+  opacity: 0.9;
+}
+.calc__keys button:active {
+  background-color: rgb(0, 207, 207);
+}
+.calc__keys button:last-child {
+  background-color: rgb(216, 140, 0);
+  color: white;
+}
+.calc__keys button:last-child:active {
+  background-color: rgb(163, 106, 0);
+}
+
+.keyDelete img {
+  position: relative;
+  top: 2px;
+}
