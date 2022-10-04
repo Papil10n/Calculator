@@ -8,7 +8,7 @@ keysField.addEventListener("click", (event) => {
    let btn = event.target;
 
    if (btn.classList.contains("keyPer")) {
-      console.log('1');
+      calcPercent();
    } else if (btn.classList.contains("keySqr")) {
       renderPow();
    } else if (btn.classList.contains("keyClean")) {
@@ -51,11 +51,34 @@ keysField.addEventListener("click", (event) => {
 
 
 
-   function renderPow() {
-      if (displayNow.innerHTML == "0") {
-         return;
+   function calcPercent() {
+      let arr = field.split(" ");
+      if (arr.length <= 2) {
+         field = '0';
+         displayNow.innerHTML = field;
       } else {
+         if (arr[2] != "") {
+            arr[2] = ((arr[0] * arr[2]) / 100).toString();
+            displayNow.innerHTML = field = `${arr[0]} ${arr[1]} ${arr[2]}`;
+         } else {
+            field = '0';
+            displayNow.innerHTML = field;
+         }
+      }
+   }
 
+   function renderPow() {
+      let arr = field.split(" ");
+      if (arr.length == 1) {
+         arr[0] = Math.pow(arr[0], 2);
+         console.log(arr[0])
+         field = `${arr[0]}`;
+         displayNow.innerHTML = field;
+      } else if (arr.length > 2) {
+         console.log(arr)
+         arr[2] = Math.pow(arr[2], 2);
+         field = `${arr[0]} ${arr[1]} ${arr[2]}`;
+         displayNow.innerHTML = field;
       }
    }
 
@@ -70,6 +93,10 @@ keysField.addEventListener("click", (event) => {
    function renderRemoval() {
       let arr = field.split("");
       arr.pop();
+      if (arr[arr.length - 1] == " ") {
+         arr.pop();
+      }
+
       field = arr.join("");
       displayNow.innerHTML = field;
       if (displayNow.innerHTML == '') {
@@ -109,13 +136,13 @@ keysField.addEventListener("click", (event) => {
 
 
    function renderNumInField(num) {
+
       if (field.length < 16) {
          if (displayNow.innerHTML == "0") {
             field = num;
          } else {
             field += num;
          }
-
          displayNow.innerHTML = field;
       }
    }
