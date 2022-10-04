@@ -11,10 +11,8 @@ keysField.addEventListener("click", (event) => {
       console.log('1');
    } else if (btn.classList.contains("keySqr")) {
       renderPow();
-
    } else if (btn.classList.contains("keyClean")) {
       clearDisplay();
-
    } else if (btn.classList.contains("keyDelete")) {
       renderRemoval();
    } else if (btn.classList.contains("key7")) {
@@ -135,7 +133,7 @@ keysField.addEventListener("click", (event) => {
          return;
       } else {
 
-      
+
          field += operator;
          displayNow.innerHTML = field;
       }
@@ -143,7 +141,7 @@ keysField.addEventListener("click", (event) => {
 
    }
 
-   
+
    function renderDot() {
 
       let arr = field.split(" ");
