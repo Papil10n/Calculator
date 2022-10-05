@@ -2,6 +2,7 @@ const keysField = document.querySelector(".calc__keys");
 let displayNow = document.querySelector(".calc__now");
 let displayPrev = document.querySelector(".calc__previous");
 let field = "";
+let isMultiply = false;
 
 
 keysField.addEventListener("click", (event) => {
@@ -69,17 +70,18 @@ keysField.addEventListener("click", (event) => {
 
    function renderPow() {
       if (field.length < 16) {
-         let arr = field.split(" ");
-         if (arr.length == 1) {
-            arr[0] = Math.pow(arr[0], 2);
-            console.log(arr[0])
-            field = `${arr[0]}`;
-            displayNow.innerHTML = field;
-         } else if (arr.length > 2) {
-            console.log(arr)
-            arr[2] = Math.pow(arr[2], 2);
-            field = `${arr[0]} ${arr[1]} ${arr[2]}`;
-            displayNow.innerHTML = field;
+         console.log(displayNow.innerHTML.length);
+         if (displayNow.innerHTML.toString().length < 10) {
+            let arr = field.split(" ");
+            if (arr.length == 1) {
+               arr[0] = Math.pow(arr[0], 2);
+               field = `${arr[0]}`;
+               displayNow.innerHTML = field;
+            } else if (arr.length > 2) {
+               arr[2] = Math.pow(arr[2], 2);
+               field = `${arr[0]} ${arr[1]} ${arr[2]}`;
+               displayNow.innerHTML = field;
+            }
          }
       }
    }
@@ -107,7 +109,6 @@ keysField.addEventListener("click", (event) => {
    };
 
    function renderResult() {
-
       displayPrev.innerHTML = displayNow.innerHTML;
       let arr = field.split(" ");
       let result = 0;
@@ -134,12 +135,16 @@ keysField.addEventListener("click", (event) => {
          field = "" + result;
       }
 
+      if (displayNow.innerHTML == "0") {
+         field = one;
+         displayNow.innerHTML = field;
+      }
    }
 
 
    function renderNumInField(num) {
 
-      if (field.length < 16) {
+      if (field.length < 15) {
          if (displayNow.innerHTML == "0") {
             field = num;
          } else {
