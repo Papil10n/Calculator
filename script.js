@@ -68,17 +68,19 @@ keysField.addEventListener("click", (event) => {
    }
 
    function renderPow() {
-      let arr = field.split(" ");
-      if (arr.length == 1) {
-         arr[0] = Math.pow(arr[0], 2);
-         console.log(arr[0])
-         field = `${arr[0]}`;
-         displayNow.innerHTML = field;
-      } else if (arr.length > 2) {
-         console.log(arr)
-         arr[2] = Math.pow(arr[2], 2);
-         field = `${arr[0]} ${arr[1]} ${arr[2]}`;
-         displayNow.innerHTML = field;
+      if (field.length < 16) {
+         let arr = field.split(" ");
+         if (arr.length == 1) {
+            arr[0] = Math.pow(arr[0], 2);
+            console.log(arr[0])
+            field = `${arr[0]}`;
+            displayNow.innerHTML = field;
+         } else if (arr.length > 2) {
+            console.log(arr)
+            arr[2] = Math.pow(arr[2], 2);
+            field = `${arr[0]} ${arr[1]} ${arr[2]}`;
+            displayNow.innerHTML = field;
+         }
       }
    }
 
